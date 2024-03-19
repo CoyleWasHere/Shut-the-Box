@@ -6,24 +6,33 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct PlayView: View {
     
     @Environment(\.dismiss) private var dismiss
-
+    @State var audioPlayer: AVAudioPlayer?
+    
     @State var firstDice = 0
     @State var secondDice = 0
     @State var rollAmount = 0
     
-    @State var buttonOne = "1"
     @State var buttonTwo = "2"
     @State var buttonThree = "3"
     @State var buttonFour = "4"
-
+    @State var buttonFive = "5"
+    @State var buttonSix = "6"
+    @State var buttonSeven = "7"
+    @State var buttonEight = "8"
+    @State var buttonNine = "9"
+    @State var buttonTen = "10"
+    @State var buttonEleven = "11"
+    @State var buttonTwelve = "12"
+    
     
     @State private var backAlert = false
     @State private var showSheet = false
-
+    
     
     var body: some View {
         
@@ -77,31 +86,8 @@ struct PlayView: View {
                 
             }
             Spacer()
-            HStack{
-                Button {
-                    // Disable Button After Tapped Once
-                    if rollAmount == 0 || buttonOne == "X" {
-                        return
-                    }
-                    
-                    // Subtract from roll amount
-                    if rollAmount >= 1 {
-                        rollAmount -= 1
-                    }
-                    
-                    // Set Button To Off
-                    buttonOne = "X"
-                } label: {
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 60, height: 60)
-                            .foregroundStyle(.white)
-                            .border(.black, width: 2)
-                        Text(buttonOne)
-                            .font(.title)
-                            .foregroundStyle(.black)
-                    }
-                }
+            HStack(){
+                // Button 2
                 Button {
                     if rollAmount == 0 || buttonTwo == "X" {
                         return
@@ -125,6 +111,7 @@ struct PlayView: View {
                             .foregroundStyle(.black)
                     }
                 }
+                // Button 3
                 Button {
                     if rollAmount == 0 || buttonThree == "X" {
                         return
@@ -134,7 +121,7 @@ struct PlayView: View {
                     if rollAmount >= 3 {
                         rollAmount -= 3
                     }
-                
+                    
                     buttonThree = "X"
                     
                 } label: {
@@ -148,6 +135,7 @@ struct PlayView: View {
                             .foregroundStyle(.black)
                     }
                 }
+                // Button 4
                 Button {
                     if rollAmount == 0 || buttonFour == "X" {
                         return
@@ -170,6 +158,208 @@ struct PlayView: View {
                             .foregroundStyle(.black)
                     }
                 }
+                // Button 5
+                Button {
+                    // Disable Button After Tapped Once
+                    if rollAmount == 0 || buttonFive == "X" {
+                        return
+                    }
+                    
+                    // Subtract from roll amount
+                    if rollAmount >= 5 {
+                        rollAmount -= 5
+                    }
+                    
+                    // Set Button To Off
+                    buttonFive = "X"
+                } label: {
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 60, height: 60)
+                            .foregroundStyle(.white)
+                            .border(.black, width: 2)
+                        Text(buttonFive)
+                            .font(.title)
+                            .foregroundStyle(.black)
+                    }
+                }
+                // Button 6
+                Button {
+                    // Disable Button After Tapped Once
+                    if rollAmount == 0 || buttonSix == "X" {
+                        return
+                    }
+                    
+                    // Subtract from roll amount
+                    if rollAmount >= 6 {
+                        rollAmount -= 6
+                    }
+                    
+                    // Set Button To Off
+                    buttonSix = "X"
+                } label: {
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 60, height: 60)
+                            .foregroundStyle(.white)
+                            .border(.black, width: 2)
+                        Text(buttonSix)
+                            .font(.title)
+                            .foregroundStyle(.black)
+                    }
+                }
+                // Button 7
+                Button {
+                    // Disable Button After Tapped Once
+                    if rollAmount == 0 || buttonSeven == "X" {
+                        return
+                    }
+                    
+                    // Subtract from roll amount
+                    if rollAmount >= 7 {
+                        rollAmount -= 7
+                    }
+                    
+                    // Set Button To Off
+                    buttonSeven = "X"
+                } label: {
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 60, height: 60)
+                            .foregroundStyle(.white)
+                            .border(.black, width: 2)
+                        Text(buttonSeven)
+                            .font(.title)
+                            .foregroundStyle(.black)
+                    }
+                }
+                // Button 8
+                Button {
+                    // Disable Button After Tapped Once
+                    if rollAmount == 0 || buttonEight == "X" {
+                        return
+                    }
+                    
+                    // Subtract from roll amount
+                    if rollAmount >= 8 {
+                        rollAmount -= 8
+                    }
+                    
+                    // Set Button To Off
+                    buttonEight = "X"
+                } label: {
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 60, height: 60)
+                            .foregroundStyle(.white)
+                            .border(.black, width: 2)
+                        Text(buttonEight)
+                            .font(.title)
+                            .foregroundStyle(.black)
+                    }
+                }
+                // Button 9
+                Button {
+                    // Disable Button After Tapped Once
+                    if rollAmount == 0 || buttonNine == "X" {
+                        return
+                    }
+                    
+                    // Subtract from roll amount
+                    if rollAmount >= 9 {
+                        rollAmount -= 9
+                    }
+                    
+                    // Set Button To Off
+                    buttonNine = "X"
+                } label: {
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 60, height: 60)
+                            .foregroundStyle(.white)
+                            .border(.black, width: 2)
+                        Text(buttonNine)
+                            .font(.title)
+                            .foregroundStyle(.black)
+                    }
+                }
+                // Button 10
+                Button {
+                    // Disable Button After Tapped Once
+                    if rollAmount == 0 || buttonTen == "X" {
+                        return
+                    }
+                    
+                    // Subtract from roll amount
+                    if rollAmount >= 10 {
+                        rollAmount -= 10
+                    }
+                    
+                    // Set Button To Off
+                    buttonTen = "X"
+                } label: {
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 60, height: 60)
+                            .foregroundStyle(.white)
+                            .border(.black, width: 2)
+                        Text(buttonTen)
+                            .font(.title)
+                            .foregroundStyle(.black)
+                    }
+                }
+                // Button 11
+                Button {
+                    // Disable Button After Tapped Once
+                    if rollAmount == 0 || buttonEleven == "X" {
+                        return
+                    }
+                    
+                    // Subtract from roll amount
+                    if rollAmount >= 11 {
+                        rollAmount -= 11
+                    }
+                    
+                    // Set Button To Off
+                    buttonEleven = "X"
+                } label: {
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 60, height: 60)
+                            .foregroundStyle(.white)
+                            .border(.black, width: 2)
+                        Text(buttonEleven)
+                            .font(.title)
+                            .foregroundStyle(.black)
+                    }
+                }
+                // Button 12
+                Button {
+                    // Disable Button After Tapped Once
+                    if rollAmount == 0 || buttonTwelve == "X" {
+                        return
+                    }
+                    
+                    // Subtract from roll amount
+                    if rollAmount >= 12 {
+                        rollAmount -= 12
+                    }
+                    
+                    // Set Button To Off
+                    buttonTwelve = "X"
+                } label: {
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 60, height: 60)
+                            .foregroundStyle(.white)
+                            .border(.black, width: 2)
+                        Text(buttonTwelve)
+                            .font(.title)
+                            .foregroundStyle(.black)
+                    }
+                }
+                
+                
             }
             Spacer()
             
@@ -179,7 +369,7 @@ struct PlayView: View {
                     .foregroundStyle(.brown)
                 Rectangle()
                     .frame(width: 700, height: 185)
-                    .foregroundStyle(.green)
+                    .foregroundStyle(.orange)
                 
                 VStack{
                     HStack{
@@ -196,15 +386,24 @@ struct PlayView: View {
                             }
                             
                             rollAmount = firstDice + secondDice
+                            
+                            // Add Dice Roll Sound
+                            rollDice()
+                            audioPlayer?.play()
                         }
-                                                
-                        // TODO: After Roll, Cannot roll again until roll amount == 0
-                        
-                        // TODO: Add Sound
                         
                     } label: {
-                        Text("Roll Dice")
-                            .font(.largeTitle)
+                        ZStack{
+                            Rectangle()
+                                .frame(width: 200, height: 60)
+                                .clipShape(RoundedRectangle(cornerRadius: 110))
+                                .foregroundStyle(Color(red: 12/255, green: 234/255, blue: 17/255))
+                            
+                            Text("Roll Dice")
+                                .font(.largeTitle)
+                                .foregroundStyle(.white)
+                                .fontWeight(.semibold)
+                        }
                     }
                 }
                 
@@ -217,7 +416,7 @@ struct PlayView: View {
                 }
                 .padding(30)
                 
-
+                
                 
             }
         }
@@ -228,6 +427,21 @@ struct PlayView: View {
         .sheet(isPresented: $showSheet, content: {
             InformationView()
         })
+    }
+    
+    func rollDice() {
+        // Load the audio file
+        if let soundURL = Bundle.main.url(forResource: "Rolling Dice", withExtension: "wav") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.numberOfLoops = 0 // Play infinitely
+            } catch {
+                print("Error loading sound file: \(error.localizedDescription)")
+            }
+        } else {
+            print("Sound file not found")
+        }
     }
 }
 
