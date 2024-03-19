@@ -11,14 +11,21 @@ struct PlayView: View {
     
     @Environment(\.dismiss) private var dismiss
 
-    @State var diceRoll = 0
+    @State var firstDice = 0
+    @State var secondDice = 0
+    @State var rollAmount = 0
+    
+    @State var buttonOne = "1"
+    @State var buttonTwo = "2"
+    @State var buttonThree = "3"
+    @State var buttonFour = "4"
+
     
     @State private var backAlert = false
     @State private var showSheet = false
 
     
     var body: some View {
-        
         
         VStack{
             
@@ -72,59 +79,100 @@ struct PlayView: View {
             Spacer()
             HStack{
                 Button {
-                    // TODO: Change Number to Off and do not allow click
+                    // Disable Button After Tapped Once
+                    if rollAmount == 0 || buttonOne == "X" {
+                        return
+                    }
+                    
+                    // Subtract from roll amount
+                    if rollAmount >= 1 {
+                        rollAmount -= 1
+                    }
+                    
+                    // Set Button To Off
+                    buttonOne = "X"
                 } label: {
                     ZStack{
                         Rectangle()
                             .frame(width: 60, height: 60)
                             .foregroundStyle(.white)
                             .border(.black, width: 2)
-                        Text("1")
+                        Text(buttonOne)
                             .font(.title)
                             .foregroundStyle(.black)
                     }
                 }
                 Button {
-                    // TODO: Change Number to Off and do not allow click
+                    if rollAmount == 0 || buttonTwo == "X" {
+                        return
+                    }
+                    
+                    // Subtract from roll amount
+                    if rollAmount >= 2 {
+                        rollAmount -= 2
+                    }
+                    
+                    buttonTwo = "X"
+                    
                 } label: {
                     ZStack{
                         Rectangle()
                             .frame(width: 60, height: 60)
                             .foregroundStyle(.white)
                             .border(.black, width: 2)
-                        Text("2")
+                        Text(buttonTwo)
                             .font(.title)
                             .foregroundStyle(.black)
                     }
                 }
                 Button {
-                    // TODO: Change Number to Off and do not allow click
+                    if rollAmount == 0 || buttonThree == "X" {
+                        return
+                    }
+                    
+                    // Subtract from roll amount
+                    if rollAmount >= 3 {
+                        rollAmount -= 3
+                    }
+                
+                    buttonThree = "X"
+                    
                 } label: {
                     ZStack{
                         Rectangle()
                             .frame(width: 60, height: 60)
                             .foregroundStyle(.white)
                             .border(.black, width: 2)
-                        Text("3")
+                        Text(buttonThree)
                             .font(.title)
                             .foregroundStyle(.black)
                     }
                 }
                 Button {
-                    // TODO: Change Number to Off and do not allow click
+                    if rollAmount == 0 || buttonFour == "X" {
+                        return
+                    }
+                    
+                    // Subtract from roll amount
+                    if rollAmount >= 4 {
+                        rollAmount -= 4
+                    }
+                    
+                    buttonFour = "X"
                 } label: {
                     ZStack{
                         Rectangle()
                             .frame(width: 60, height: 60)
                             .foregroundStyle(.white)
                             .border(.black, width: 2)
-                        Text("4")
+                        Text(buttonFour)
                             .font(.title)
                             .foregroundStyle(.black)
                     }
                 }
             }
             Spacer()
+            
             ZStack{
                 Rectangle()
                     .frame(width: 750, height: 225)
@@ -133,17 +181,37 @@ struct PlayView: View {
                     .frame(width: 700, height: 185)
                     .foregroundStyle(.green)
                 
-                Button {
-                    // TODO: Roll Dice
-                } label: {
-                    Text("Roll Dice")
-                        .font(.largeTitle)
+                VStack{
+                    HStack{
+                        Image("dice\(firstDice)")
+                        Image("dice\(secondDice)")
+                    }
+                    
+                    Button {
+                        // Roll Dice
+                        if rollAmount == 0 {
+                            withAnimation {
+                                firstDice = Int.random(in: 1...6)
+                                secondDice = Int.random(in: 1...6)
+                            }
+                            
+                            rollAmount = firstDice + secondDice
+                        }
+                                                
+                        // TODO: After Roll, Cannot roll again until roll amount == 0
+                        
+                        // TODO: Add Sound
+                        
+                    } label: {
+                        Text("Roll Dice")
+                            .font(.largeTitle)
+                    }
                 }
                 
                 HStack{
                     Spacer()
                     VStack{
-                        Text("Roll Amount: \(diceRoll)")
+                        Text("Roll Amount: \(rollAmount)")
                         Spacer()
                     }
                 }
