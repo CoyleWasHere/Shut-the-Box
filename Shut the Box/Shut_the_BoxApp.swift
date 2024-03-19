@@ -11,7 +11,7 @@ import SwiftUI
 struct Shut_the_BoxApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }

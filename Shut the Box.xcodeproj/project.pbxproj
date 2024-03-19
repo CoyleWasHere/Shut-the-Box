@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		FC8673282BA9182500EF3906 /* Shut_the_BoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8673272BA9182500EF3906 /* Shut_the_BoxApp.swift */; };
-		FC86732A2BA9182500EF3906 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8673292BA9182500EF3906 /* ContentView.swift */; };
+		FC86732A2BA9182500EF3906 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8673292BA9182500EF3906 /* HomeView.swift */; };
 		FC86732C2BA9182600EF3906 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC86732B2BA9182600EF3906 /* Assets.xcassets */; };
 		FC86732F2BA9182600EF3906 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC86732E2BA9182600EF3906 /* Preview Assets.xcassets */; };
+		FC8673362BA9184300EF3906 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8673352BA9184300EF3906 /* PlayView.swift */; };
+		FC8673382BA9185100EF3906 /* InformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC8673372BA9185100EF3906 /* InformationView.swift */; };
+		FC86733C2BA91D1F00EF3906 /* Rolling Dice.wav in Resources */ = {isa = PBXBuildFile; fileRef = FC8673392BA91D1F00EF3906 /* Rolling Dice.wav */; };
+		FC86733D2BA91D1F00EF3906 /* TheFatRat_Unity.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FC86733A2BA91D1F00EF3906 /* TheFatRat_Unity.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FC8673242BA9182500EF3906 /* Shut the Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shut the Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8673272BA9182500EF3906 /* Shut_the_BoxApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shut_the_BoxApp.swift; sourceTree = "<group>"; };
-		FC8673292BA9182500EF3906 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FC8673292BA9182500EF3906 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		FC86732B2BA9182600EF3906 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FC86732E2BA9182600EF3906 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		FC8673352BA9184300EF3906 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		FC8673372BA9185100EF3906 /* InformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationView.swift; sourceTree = "<group>"; };
+		FC8673392BA91D1F00EF3906 /* Rolling Dice.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "Rolling Dice.wav"; sourceTree = "<group>"; };
+		FC86733A2BA91D1F00EF3906 /* TheFatRat_Unity.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TheFatRat_Unity.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +60,10 @@
 			isa = PBXGroup;
 			children = (
 				FC8673272BA9182500EF3906 /* Shut_the_BoxApp.swift */,
-				FC8673292BA9182500EF3906 /* ContentView.swift */,
+				FC8673292BA9182500EF3906 /* HomeView.swift */,
+				FC8673352BA9184300EF3906 /* PlayView.swift */,
+				FC8673372BA9185100EF3906 /* InformationView.swift */,
+				FC86733B2BA91D1F00EF3906 /* Shut the Box Sounds */,
 				FC86732B2BA9182600EF3906 /* Assets.xcassets */,
 				FC86732D2BA9182600EF3906 /* Preview Content */,
 			);
@@ -65,6 +76,15 @@
 				FC86732E2BA9182600EF3906 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		FC86733B2BA91D1F00EF3906 /* Shut the Box Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				FC8673392BA91D1F00EF3906 /* Rolling Dice.wav */,
+				FC86733A2BA91D1F00EF3906 /* TheFatRat_Unity.mp3 */,
+			);
+			path = "Shut the Box Sounds";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,7 +145,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC86733D2BA91D1F00EF3906 /* TheFatRat_Unity.mp3 in Resources */,
 				FC86732F2BA9182600EF3906 /* Preview Assets.xcassets in Resources */,
+				FC86733C2BA91D1F00EF3906 /* Rolling Dice.wav in Resources */,
 				FC86732C2BA9182600EF3906 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +159,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FC86732A2BA9182500EF3906 /* ContentView.swift in Sources */,
+				FC8673362BA9184300EF3906 /* PlayView.swift in Sources */,
+				FC8673382BA9185100EF3906 /* InformationView.swift in Sources */,
+				FC86732A2BA9182500EF3906 /* HomeView.swift in Sources */,
 				FC8673282BA9182500EF3906 /* Shut_the_BoxApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,8 +302,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,8 +331,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
