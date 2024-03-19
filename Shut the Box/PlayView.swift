@@ -17,6 +17,7 @@ struct PlayView: View {
     @State var secondDice = 0
     @State var rollAmount = 0
     
+    @State var buttonOne = "1"
     @State var buttonTwo = "2"
     @State var buttonThree = "3"
     @State var buttonFour = "4"
@@ -86,7 +87,30 @@ struct PlayView: View {
                 
             }
             Spacer()
-            HStack(){
+            HStack(spacing: 2){
+                
+                // Button 1
+                Button {
+                    if rollAmount == 0 || buttonTwo == "X" {
+                        return
+                    }
+                    
+                    // Subtract from roll amount
+                    if rollAmount >= 1 {
+                        rollAmount -= 1
+                        buttonTwo = "X"
+                    }
+                } label: {
+                    ZStack{
+                        Rectangle()
+                            .frame(width: 60, height: 60)
+                            .foregroundStyle(.white)
+                            .border(.black, width: 2)
+                        Text(buttonOne)
+                            .font(.title)
+                            .foregroundStyle(.black)
+                    }
+                }
                 // Button 2
                 Button {
                     if rollAmount == 0 || buttonTwo == "X" {
@@ -96,10 +120,8 @@ struct PlayView: View {
                     // Subtract from roll amount
                     if rollAmount >= 2 {
                         rollAmount -= 2
+                        buttonTwo = "X"
                     }
-                    
-                    buttonTwo = "X"
-                    
                 } label: {
                     ZStack{
                         Rectangle()
@@ -120,10 +142,8 @@ struct PlayView: View {
                     // Subtract from roll amount
                     if rollAmount >= 3 {
                         rollAmount -= 3
+                        buttonThree = "X"
                     }
-                    
-                    buttonThree = "X"
-                    
                 } label: {
                     ZStack{
                         Rectangle()
@@ -144,9 +164,8 @@ struct PlayView: View {
                     // Subtract from roll amount
                     if rollAmount >= 4 {
                         rollAmount -= 4
+                        buttonFour = "X"
                     }
-                    
-                    buttonFour = "X"
                 } label: {
                     ZStack{
                         Rectangle()
@@ -168,10 +187,10 @@ struct PlayView: View {
                     // Subtract from roll amount
                     if rollAmount >= 5 {
                         rollAmount -= 5
+                        
+                        // Set Button To Off
+                        buttonFive = "X"
                     }
-                    
-                    // Set Button To Off
-                    buttonFive = "X"
                 } label: {
                     ZStack{
                         Rectangle()
@@ -193,10 +212,10 @@ struct PlayView: View {
                     // Subtract from roll amount
                     if rollAmount >= 6 {
                         rollAmount -= 6
+                        
+                        // Set Button To Off
+                        buttonSix = "X"
                     }
-                    
-                    // Set Button To Off
-                    buttonSix = "X"
                 } label: {
                     ZStack{
                         Rectangle()
@@ -218,10 +237,10 @@ struct PlayView: View {
                     // Subtract from roll amount
                     if rollAmount >= 7 {
                         rollAmount -= 7
+                        
+                        // Set Button To Off
+                        buttonSeven = "X"
                     }
-                    
-                    // Set Button To Off
-                    buttonSeven = "X"
                 } label: {
                     ZStack{
                         Rectangle()
@@ -243,10 +262,10 @@ struct PlayView: View {
                     // Subtract from roll amount
                     if rollAmount >= 8 {
                         rollAmount -= 8
+                        
+                        // Set Button To Off
+                        buttonEight = "X"
                     }
-                    
-                    // Set Button To Off
-                    buttonEight = "X"
                 } label: {
                     ZStack{
                         Rectangle()
@@ -268,10 +287,11 @@ struct PlayView: View {
                     // Subtract from roll amount
                     if rollAmount >= 9 {
                         rollAmount -= 9
+                        
+                        // Set Button To Off
+                        buttonNine = "X"
                     }
                     
-                    // Set Button To Off
-                    buttonNine = "X"
                 } label: {
                     ZStack{
                         Rectangle()
@@ -293,10 +313,10 @@ struct PlayView: View {
                     // Subtract from roll amount
                     if rollAmount >= 10 {
                         rollAmount -= 10
+                        
+                        // Set Button To Off
+                        buttonTen = "X"
                     }
-                    
-                    // Set Button To Off
-                    buttonTen = "X"
                 } label: {
                     ZStack{
                         Rectangle()
@@ -318,10 +338,10 @@ struct PlayView: View {
                     // Subtract from roll amount
                     if rollAmount >= 11 {
                         rollAmount -= 11
+                        
+                        // Set Button To Off
+                        buttonEleven = "X"
                     }
-                    
-                    // Set Button To Off
-                    buttonEleven = "X"
                 } label: {
                     ZStack{
                         Rectangle()
@@ -343,10 +363,10 @@ struct PlayView: View {
                     // Subtract from roll amount
                     if rollAmount >= 12 {
                         rollAmount -= 12
+                        
+                        // Set Button To Off
+                        buttonTwelve = "X"
                     }
-                    
-                    // Set Button To Off
-                    buttonTwelve = "X"
                 } label: {
                     ZStack{
                         Rectangle()
