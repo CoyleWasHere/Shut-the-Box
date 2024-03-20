@@ -11,42 +11,49 @@ struct InformationView: View {
     @Environment(\.dismiss) private var dismiss
     
     var body: some View {
-        VStack{
-            ZStack{
-                Text("How To Play")
-                    .font(.title)
-                    .underline()
-                HStack{
-                    Spacer()
-                    Button{
-                        dismiss()
-                    } label: {
-                        Image(systemName: "xmark.circle.fill")
-                            .font(.title)
-                            .foregroundStyle(.black)
+        
+        ScrollView{
+            VStack{
+                ZStack{
+                    Text("How To Play")
+                        .font(.title)
+                        .underline()
+                    HStack{
+                        Spacer()
+                        Button{
+                            dismiss()
+                        } label: {
+                            Image(systemName: "xmark.circle.fill")
+                                .font(.title)
+                                .foregroundStyle(.black)
+                        }
                     }
                 }
+                VStack(alignment: .leading){
+                    Text(" - Start by rolling the dice")
+                    Text(" - After rolling, the roll amount will appear in the top right of the box")
+                    Text(" - In order to roll again, you must select numbers that total to that amount and the roll amount must show 0")
+                    Text(" - For Example: If you roll a 10")
+                    Text(" - You can select the number 10, or you can select 8 & 2, or you can select 6, 3, & 1.")
+                    Text(" - However you can get to the roll amount with the numbers left available")
+                    Text(" - After using a number, you will no longer have access to that number")
+                }
+                
+                Spacer()
+                Text("How To Win")
+                    .font(.title)
+                    .underline()
+                VStack(alignment: .leading) {
+                    Text(" - In order to win you must Shut the Box")
+                    Text(" - To Shut the Box, you must tap all the numbers 1-12")
+                    Text(" - If you roll an amount and can no longer make any moves, the Total Score is your final score.")
+                    Text("- If you manage to use all of the numbers . . . YOU WIN!!! The total score will show 78!!")
+                    Text(" - Can you do that twice in a row?")
+                }
+                Spacer()
             }
-            VStack(alignment: .leading){
-                Text(" - Tap a Card, then you will be given three options.")
-                Text(" - (Higher, Lower, Cancel)")
-                Text(" - If the next card drawn matches your guess that card goes on top of the selected pile and you continue")
-                Text(" - If the next card drawn does not match your guess the pile gets turned over and you can no longer use that pile")
-                Text(" - In the case where the drawn card is the same number as the pile, that pile gets turned over and you no longer get to use it.")
-                Text(" - If you choose a pile and no longer want to use that one, select cancel to take you back to the selection.")
-            }
-            
-            Spacer()
-            Text("How To Win")
-                .font(.title)
-                .underline()
-            VStack(alignment: .leading) {
-                Text(" - In order to win you must go through an entire deck of 52 cards before all the piles are turned over.")
-                Text(" - If all the decks are turned over it is GAME OVER and you must restart.")
-            }
-            Spacer()
+            .padding()
         }
-        .padding()
     }
 }
 

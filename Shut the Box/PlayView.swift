@@ -16,6 +16,7 @@ struct PlayView: View {
     @State var firstDice = 0
     @State var secondDice = 0
     @State var rollAmount = 0
+    @State var totalScore = 0
     
     @State var buttonOne = "1"
     @State var buttonTwo = "2"
@@ -30,7 +31,7 @@ struct PlayView: View {
     @State var buttonEleven = "11"
     @State var buttonTwelve = "12"
     
-    
+    @State private var restartAlert = false
     @State private var backAlert = false
     @State private var showSheet = false
     
@@ -101,6 +102,7 @@ struct PlayView: View {
                         buttonOne = "X"
                         shutBoxSound()
                         audioPlayer?.play()
+                        totalScore += 1
                     }
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonOne)
@@ -117,6 +119,7 @@ struct PlayView: View {
                         buttonTwo = "X"
                         shutBoxSound()
                         audioPlayer?.play()
+                        totalScore += 2
                     }
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonTwo)
@@ -133,6 +136,7 @@ struct PlayView: View {
                         buttonThree = "X"
                         shutBoxSound()
                         audioPlayer?.play()
+                        totalScore += 3
                     }
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonThree)
@@ -149,6 +153,7 @@ struct PlayView: View {
                         buttonFour = "X"
                         shutBoxSound()
                         audioPlayer?.play()
+                        totalScore += 4
                     }
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonFour)
@@ -168,6 +173,7 @@ struct PlayView: View {
                         buttonFive = "X"
                         shutBoxSound()
                         audioPlayer?.play()
+                        totalScore += 5
                     }
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonFive)
@@ -187,6 +193,7 @@ struct PlayView: View {
                         buttonSix = "X"
                         shutBoxSound()
                         audioPlayer?.play()
+                        totalScore += 6
                     }
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonSix)
@@ -206,6 +213,7 @@ struct PlayView: View {
                         buttonSeven = "X"
                         shutBoxSound()
                         audioPlayer?.play()
+                        totalScore += 7
                     }
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonSeven)
@@ -225,6 +233,7 @@ struct PlayView: View {
                         buttonEight = "X"
                         shutBoxSound()
                         audioPlayer?.play()
+                        totalScore += 8
                     }
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonEight)
@@ -244,6 +253,7 @@ struct PlayView: View {
                         buttonNine = "X"
                         shutBoxSound()
                         audioPlayer?.play()
+                        totalScore += 9
                     }
                     
                 } label: {
@@ -264,6 +274,7 @@ struct PlayView: View {
                         buttonTen = "X"
                         shutBoxSound()
                         audioPlayer?.play()
+                        totalScore += 10
                     }
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonTen)
@@ -283,6 +294,7 @@ struct PlayView: View {
                         buttonEleven = "X"
                         shutBoxSound()
                         audioPlayer?.play()
+                        totalScore += 11
                     }
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonEleven)
@@ -302,6 +314,7 @@ struct PlayView: View {
                         buttonTwelve = "X"
                         shutBoxSound()
                         audioPlayer?.play()
+                        totalScore += 12
                     }
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonTwelve)
@@ -356,10 +369,76 @@ struct PlayView: View {
                 }
                 
                 HStack{
+                    VStack{
+                        Text("Total Score:")
+                        Text(String(totalScore))
+                        Spacer()
+                    }
+                    .font(.title)
+                    .foregroundStyle(.white)
+                    
+                        Spacer()
+                }
+                .padding(30)
+                
+                HStack{
                     Spacer()
                     VStack{
                         Text("Roll Amount: \(rollAmount)")
                         Spacer()
+                    }
+                }
+                .padding(30)
+                
+                // Restart the Game
+                HStack{
+                    Spacer()
+                    VStack{
+                        Spacer()
+                        Button {
+                            restartAlert = true
+                        } label: {
+                            ZStack{
+                                Rectangle()
+                                    .frame(width: 80, height: 30)
+                                    .clipShape(RoundedRectangle(cornerRadius: 110))
+                                    .foregroundStyle(.gray)
+                                
+                                Text("Restart")
+                                    .foregroundStyle(.white)
+                                    .fontWeight(.semibold)
+                            }
+                        }
+                        
+                        .alert("Are you sure you want to restart?", isPresented: $restartAlert) {
+                            Button {
+                                withAnimation {
+                                    buttonOne = "1"
+                                    buttonTwo = "2"
+                                    buttonThree = "3"
+                                    buttonFour = "4"
+                                    buttonFive = "5"
+                                    buttonSix = "6"
+                                    buttonSeven = "7"
+                                    buttonEight = "8"
+                                    buttonNine = "9"
+                                    buttonTen = "10"
+                                    buttonEleven = "11"
+                                    buttonTwelve = "12"
+                                    totalScore = 0
+                                    rollAmount = 0
+                                    firstDice = 0
+                                    secondDice = 0
+                                    
+                                }
+                            } label: {
+                                Text("Restart")
+                            }
+                            Button {
+                            } label: {
+                                Text("Continue Playing")
+                            }
+                        }
                     }
                 }
                 .padding(30)
