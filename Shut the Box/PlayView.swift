@@ -91,25 +91,19 @@ struct PlayView: View {
                 
                 // Button 1
                 Button {
-                    if rollAmount == 0 || buttonTwo == "X" {
+                    if rollAmount == 0 || buttonOne == "X" {
                         return
                     }
                     
                     // Subtract from roll amount
                     if rollAmount >= 1 {
                         rollAmount -= 1
-                        buttonTwo = "X"
+                        buttonOne = "X"
+                        shutBoxSound()
+                        audioPlayer?.play()
                     }
                 } label: {
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 60, height: 60)
-                            .foregroundStyle(.white)
-                            .border(.black, width: 2)
-                        Text(buttonOne)
-                            .font(.title)
-                            .foregroundStyle(.black)
-                    }
+                    BoxButtonStyleView(boxNumber: buttonOne)
                 }
                 // Button 2
                 Button {
@@ -121,17 +115,11 @@ struct PlayView: View {
                     if rollAmount >= 2 {
                         rollAmount -= 2
                         buttonTwo = "X"
+                        shutBoxSound()
+                        audioPlayer?.play()
                     }
                 } label: {
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 60, height: 60)
-                            .foregroundStyle(.white)
-                            .border(.black, width: 2)
-                        Text(buttonTwo)
-                            .font(.title)
-                            .foregroundStyle(.black)
-                    }
+                    BoxButtonStyleView(boxNumber: buttonTwo)
                 }
                 // Button 3
                 Button {
@@ -143,17 +131,11 @@ struct PlayView: View {
                     if rollAmount >= 3 {
                         rollAmount -= 3
                         buttonThree = "X"
+                        shutBoxSound()
+                        audioPlayer?.play()
                     }
                 } label: {
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 60, height: 60)
-                            .foregroundStyle(.white)
-                            .border(.black, width: 2)
-                        Text(buttonThree)
-                            .font(.title)
-                            .foregroundStyle(.black)
-                    }
+                    BoxButtonStyleView(boxNumber: buttonThree)
                 }
                 // Button 4
                 Button {
@@ -165,17 +147,11 @@ struct PlayView: View {
                     if rollAmount >= 4 {
                         rollAmount -= 4
                         buttonFour = "X"
+                        shutBoxSound()
+                        audioPlayer?.play()
                     }
                 } label: {
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 60, height: 60)
-                            .foregroundStyle(.white)
-                            .border(.black, width: 2)
-                        Text(buttonFour)
-                            .font(.title)
-                            .foregroundStyle(.black)
-                    }
+                    BoxButtonStyleView(boxNumber: buttonFour)
                 }
                 // Button 5
                 Button {
@@ -190,17 +166,11 @@ struct PlayView: View {
                         
                         // Set Button To Off
                         buttonFive = "X"
+                        shutBoxSound()
+                        audioPlayer?.play()
                     }
                 } label: {
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 60, height: 60)
-                            .foregroundStyle(.white)
-                            .border(.black, width: 2)
-                        Text(buttonFive)
-                            .font(.title)
-                            .foregroundStyle(.black)
-                    }
+                    BoxButtonStyleView(boxNumber: buttonFive)
                 }
                 // Button 6
                 Button {
@@ -215,17 +185,11 @@ struct PlayView: View {
                         
                         // Set Button To Off
                         buttonSix = "X"
+                        shutBoxSound()
+                        audioPlayer?.play()
                     }
                 } label: {
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 60, height: 60)
-                            .foregroundStyle(.white)
-                            .border(.black, width: 2)
-                        Text(buttonSix)
-                            .font(.title)
-                            .foregroundStyle(.black)
-                    }
+                    BoxButtonStyleView(boxNumber: buttonSix)
                 }
                 // Button 7
                 Button {
@@ -240,17 +204,11 @@ struct PlayView: View {
                         
                         // Set Button To Off
                         buttonSeven = "X"
+                        shutBoxSound()
+                        audioPlayer?.play()
                     }
                 } label: {
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 60, height: 60)
-                            .foregroundStyle(.white)
-                            .border(.black, width: 2)
-                        Text(buttonSeven)
-                            .font(.title)
-                            .foregroundStyle(.black)
-                    }
+                    BoxButtonStyleView(boxNumber: buttonSeven)
                 }
                 // Button 8
                 Button {
@@ -265,17 +223,11 @@ struct PlayView: View {
                         
                         // Set Button To Off
                         buttonEight = "X"
+                        shutBoxSound()
+                        audioPlayer?.play()
                     }
                 } label: {
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 60, height: 60)
-                            .foregroundStyle(.white)
-                            .border(.black, width: 2)
-                        Text(buttonEight)
-                            .font(.title)
-                            .foregroundStyle(.black)
-                    }
+                    BoxButtonStyleView(boxNumber: buttonEight)
                 }
                 // Button 9
                 Button {
@@ -290,18 +242,12 @@ struct PlayView: View {
                         
                         // Set Button To Off
                         buttonNine = "X"
+                        shutBoxSound()
+                        audioPlayer?.play()
                     }
                     
                 } label: {
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 60, height: 60)
-                            .foregroundStyle(.white)
-                            .border(.black, width: 2)
-                        Text(buttonNine)
-                            .font(.title)
-                            .foregroundStyle(.black)
-                    }
+                    BoxButtonStyleView(boxNumber: buttonNine)
                 }
                 // Button 10
                 Button {
@@ -316,17 +262,11 @@ struct PlayView: View {
                         
                         // Set Button To Off
                         buttonTen = "X"
+                        shutBoxSound()
+                        audioPlayer?.play()
                     }
                 } label: {
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 60, height: 60)
-                            .foregroundStyle(.white)
-                            .border(.black, width: 2)
-                        Text(buttonTen)
-                            .font(.title)
-                            .foregroundStyle(.black)
-                    }
+                    BoxButtonStyleView(boxNumber: buttonTen)
                 }
                 // Button 11
                 Button {
@@ -341,17 +281,11 @@ struct PlayView: View {
                         
                         // Set Button To Off
                         buttonEleven = "X"
+                        shutBoxSound()
+                        audioPlayer?.play()
                     }
                 } label: {
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 60, height: 60)
-                            .foregroundStyle(.white)
-                            .border(.black, width: 2)
-                        Text(buttonEleven)
-                            .font(.title)
-                            .foregroundStyle(.black)
-                    }
+                    BoxButtonStyleView(boxNumber: buttonEleven)
                 }
                 // Button 12
                 Button {
@@ -366,17 +300,11 @@ struct PlayView: View {
                         
                         // Set Button To Off
                         buttonTwelve = "X"
+                        shutBoxSound()
+                        audioPlayer?.play()
                     }
                 } label: {
-                    ZStack{
-                        Rectangle()
-                            .frame(width: 60, height: 60)
-                            .foregroundStyle(.white)
-                            .border(.black, width: 2)
-                        Text(buttonTwelve)
-                            .font(.title)
-                            .foregroundStyle(.black)
-                    }
+                    BoxButtonStyleView(boxNumber: buttonTwelve)
                 }
                 
                 
@@ -449,9 +377,37 @@ struct PlayView: View {
         })
     }
     
+    // MARK: Trying to make button tap reusable
+    func shutBox() {
+        if rollAmount == 0 || buttonOne == "X" {
+            return
+        }
+        
+        // Subtract from roll amount
+        if rollAmount >= 1 {
+            rollAmount -= 1
+            buttonOne = "X"
+        }
+    }
+    
     func rollDice() {
         // Load the audio file
         if let soundURL = Bundle.main.url(forResource: "Rolling Dice", withExtension: "wav") {
+            do {
+                audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
+                audioPlayer?.prepareToPlay()
+                audioPlayer?.numberOfLoops = 0 // Play infinitely
+            } catch {
+                print("Error loading sound file: \(error.localizedDescription)")
+            }
+        } else {
+            print("Sound file not found")
+        }
+    }
+    
+    func shutBoxSound() {
+        // Load the audio file
+        if let soundURL = Bundle.main.url(forResource: "Shut Box", withExtension: "mp3") {
             do {
                 audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
                 audioPlayer?.prepareToPlay()
