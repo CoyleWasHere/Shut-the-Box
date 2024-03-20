@@ -65,7 +65,8 @@ struct HomeView: View {
                 InformationView()
             })
             .onAppear(perform: {
-                
+                playMusic()
+                audioPlayer?.play()
             })
         }
                 

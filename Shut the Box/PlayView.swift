@@ -454,6 +454,9 @@ struct PlayView: View {
         .sheet(isPresented: $showSheet, content: {
             InformationView()
         })
+        .onAppear {
+            audioPlayer?.pause()
+        }
     }
     
     // MARK: Trying to make button tap reusable
