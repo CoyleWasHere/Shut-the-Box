@@ -31,6 +31,7 @@
 		FC86733A2BA91D1F00EF3906 /* TheFatRat_Unity.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = TheFatRat_Unity.mp3; sourceTree = "<group>"; };
 		FC86733E2BAA012A00EF3906 /* BoxButtonStyleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoxButtonStyleView.swift; sourceTree = "<group>"; };
 		FC8673402BAA7EC700EF3906 /* Shut Box.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Shut Box.mp3"; sourceTree = "<group>"; };
+		FC8673422BAB2CC700EF3906 /* Shut-the-Box-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Shut-the-Box-Info.plist"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +64,7 @@
 		FC8673262BA9182500EF3906 /* Shut the Box */ = {
 			isa = PBXGroup;
 			children = (
+				FC8673422BAB2CC700EF3906 /* Shut-the-Box-Info.plist */,
 				FC8673272BA9182500EF3906 /* Shut_the_BoxApp.swift */,
 				FC8673292BA9182500EF3906 /* HomeView.swift */,
 				FC8673352BA9184300EF3906 /* PlayView.swift */,
@@ -307,16 +309,18 @@
 				DEVELOPMENT_TEAM = GMX7FB8LGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Shut-the-Box-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DanielCoyle.Shut-the-Box";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -336,16 +340,18 @@
 				DEVELOPMENT_TEAM = GMX7FB8LGL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Shut-the-Box-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.DanielCoyle.Shut-the-Box";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
