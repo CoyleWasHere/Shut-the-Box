@@ -11,12 +11,18 @@ import AVFoundation
 struct PlayView: View {
     
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.undoManager) private var undoManager
     @State var audioPlayer: AVAudioPlayer?
     
     @State var firstDice = 0
     @State var secondDice = 0
     @State var rollAmount = 0
     @State var totalScore = 0
+    
+    @State var previousTotalScore = 0
+    @State var previousRollAmount = 0
+    @State var previousButtonNumber = "1"
+    @State var previousButton = 0
     
     @State var buttonOne = "1"
     @State var buttonTwo = "2"
@@ -34,14 +40,14 @@ struct PlayView: View {
     @State private var restartAlert = false
     @State private var backAlert = false
     @State private var showSheet = false
+    @State private var undo = false
     
     
     var body: some View {
         
         VStack{
-            
             ZStack{
-                Text("Shut the Box")
+                Text("Shut This Box")
                     .font(.largeTitle)
                     .bold()
                     .foregroundStyle(.white)
@@ -68,6 +74,57 @@ struct PlayView: View {
                             Text("Continue Playing")
                         }
                     }
+                    
+                    Button {
+                        // UNDO BUTTON KINDA WORKS . . . STILL CAN IMPROVE
+                        // Store previous values for total score, roll amount, and button clicked
+                        // Capture new values every time a button is clicked
+                        // Keep Track of Which Button Was Tapped
+                        totalScore = previousTotalScore
+                        rollAmount = previousRollAmount
+                        
+                        if previousButton == 1 {
+                            buttonOne = previousButtonNumber
+                        }
+                        if previousButton == 2 {
+                            buttonTwo = previousButtonNumber
+                        }
+                        if previousButton == 3 {
+                            buttonThree = previousButtonNumber
+                        }
+                        if previousButton == 4 {
+                            buttonFour = previousButtonNumber
+                        }
+                        if previousButton == 5 {
+                            buttonFive = previousButtonNumber
+                        }
+                        if previousButton == 6 {
+                            buttonSix = previousButtonNumber
+                        }
+                        if previousButton == 7 {
+                            buttonSeven = previousButtonNumber
+                        }
+                        if previousButton == 8 {
+                            buttonEight = previousButtonNumber
+                        }
+                        if previousButton == 9 {
+                            buttonNine = previousButtonNumber
+                        }
+                        if previousButton == 10 {
+                            buttonTen = previousButtonNumber
+                        }
+                        if previousButton == 11 {
+                            buttonEleven = previousButtonNumber
+                        }
+                        if previousButton == 12 {
+                            buttonTwelve = previousButtonNumber
+                        }
+                        
+                        
+                    } label: {
+                        Text("Undo")
+                    }
+                    
                     Spacer()
                 }
                 .padding()
@@ -92,6 +149,12 @@ struct PlayView: View {
                 
                 // Button 1
                 Button {
+                    
+                    previousTotalScore = totalScore
+                    previousRollAmount = rollAmount
+                    previousButtonNumber = buttonOne
+                    previousButton = 1
+                    
                     if rollAmount == 0 || buttonOne == "X" {
                         return
                     }
@@ -104,11 +167,18 @@ struct PlayView: View {
                         audioPlayer?.play()
                         totalScore += 1
                     }
+                    
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonOne)
                 }
                 // Button 2
                 Button {
+                    
+                    previousTotalScore = totalScore
+                    previousRollAmount = rollAmount
+                    previousButtonNumber = buttonTwo
+                    previousButton = 2
+                    
                     if rollAmount == 0 || buttonTwo == "X" {
                         return
                     }
@@ -121,11 +191,20 @@ struct PlayView: View {
                         audioPlayer?.play()
                         totalScore += 2
                     }
+                    
+                    previousTotalScore = totalScore
+                    previousRollAmount = rollAmount
+                    
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonTwo)
                 }
                 // Button 3
                 Button {
+                    previousTotalScore = totalScore
+                    previousRollAmount = rollAmount
+                    previousButtonNumber = buttonThree
+                    previousButton = 3
+                    
                     if rollAmount == 0 || buttonThree == "X" {
                         return
                     }
@@ -138,11 +217,17 @@ struct PlayView: View {
                         audioPlayer?.play()
                         totalScore += 3
                     }
+                    
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonThree)
                 }
                 // Button 4
                 Button {
+                    previousTotalScore = totalScore
+                    previousRollAmount = rollAmount
+                    previousButtonNumber = buttonFour
+                    previousButton = 4
+                    
                     if rollAmount == 0 || buttonFour == "X" {
                         return
                     }
@@ -160,6 +245,11 @@ struct PlayView: View {
                 }
                 // Button 5
                 Button {
+                    previousTotalScore = totalScore
+                    previousRollAmount = rollAmount
+                    previousButtonNumber = buttonFive
+                    previousButton = 5
+                    
                     // Disable Button After Tapped Once
                     if rollAmount == 0 || buttonFive == "X" {
                         return
@@ -180,6 +270,11 @@ struct PlayView: View {
                 }
                 // Button 6
                 Button {
+                    previousTotalScore = totalScore
+                    previousRollAmount = rollAmount
+                    previousButtonNumber = buttonSix
+                    previousButton = 6
+                    
                     // Disable Button After Tapped Once
                     if rollAmount == 0 || buttonSix == "X" {
                         return
@@ -200,6 +295,11 @@ struct PlayView: View {
                 }
                 // Button 7
                 Button {
+                    previousTotalScore = totalScore
+                    previousRollAmount = rollAmount
+                    previousButtonNumber = buttonSeven
+                    previousButton = 7
+                    
                     // Disable Button After Tapped Once
                     if rollAmount == 0 || buttonSeven == "X" {
                         return
@@ -220,6 +320,11 @@ struct PlayView: View {
                 }
                 // Button 8
                 Button {
+                    previousTotalScore = totalScore
+                    previousRollAmount = rollAmount
+                    previousButtonNumber = buttonEight
+                    previousButton = 8
+                    
                     // Disable Button After Tapped Once
                     if rollAmount == 0 || buttonEight == "X" {
                         return
@@ -240,6 +345,11 @@ struct PlayView: View {
                 }
                 // Button 9
                 Button {
+                    previousTotalScore = totalScore
+                    previousRollAmount = rollAmount
+                    previousButtonNumber = buttonNine
+                    previousButton = 9
+                    
                     // Disable Button After Tapped Once
                     if rollAmount == 0 || buttonNine == "X" {
                         return
@@ -261,6 +371,11 @@ struct PlayView: View {
                 }
                 // Button 10
                 Button {
+                    previousTotalScore = totalScore
+                    previousRollAmount = rollAmount
+                    previousButtonNumber = buttonTen
+                    previousButton = 10
+                    
                     // Disable Button After Tapped Once
                     if rollAmount == 0 || buttonTen == "X" {
                         return
@@ -281,6 +396,11 @@ struct PlayView: View {
                 }
                 // Button 11
                 Button {
+                    previousTotalScore = totalScore
+                    previousRollAmount = rollAmount
+                    previousButtonNumber = buttonEleven
+                    previousButton = 11
+                    
                     // Disable Button After Tapped Once
                     if rollAmount == 0 || buttonEleven == "X" {
                         return
@@ -301,6 +421,11 @@ struct PlayView: View {
                 }
                 // Button 12
                 Button {
+                    previousTotalScore = totalScore
+                    previousRollAmount = rollAmount
+                    previousButtonNumber = buttonTwelve
+                    previousButton = 12
+                    
                     // Disable Button After Tapped Once
                     if rollAmount == 0 || buttonTwelve == "X" {
                         return
@@ -332,38 +457,54 @@ struct PlayView: View {
                     .frame(width: 700, height: 185)
                     .foregroundStyle(.orange)
                 
-                VStack{
-                    HStack{
-                        Image("dice\(firstDice)")
-                        Image("dice\(secondDice)")
+                if totalScore == 78 {
+                    
+                    VStack {
+                        Text("Congrats You Shut The Box!!!")
+                            .font(.largeTitle)
+                            .foregroundStyle(.white)
+                            .fontWeight(.semibold)
+                        Text("To Play Again Click Restart -->")
                     }
                     
-                    Button {
-                        // Roll Dice
-                        if rollAmount == 0 {
-                            withAnimation {
-                                firstDice = Int.random(in: 1...6)
-                                secondDice = Int.random(in: 1...6)
-                            }
-                            
-                            rollAmount = firstDice + secondDice
-                            
-                            // Add Dice Roll Sound
-                            rollDice()
-                            audioPlayer?.play()
+                    
+                }
+                
+                if totalScore < 78 {
+                    VStack{
+                        HStack{
+                            Image("dice\(firstDice)")
+                            Image("dice\(secondDice)")
                         }
                         
-                    } label: {
-                        ZStack{
-                            Rectangle()
-                                .frame(width: 200, height: 60)
-                                .clipShape(RoundedRectangle(cornerRadius: 110))
-                                .foregroundStyle(Color(red: 12/255, green: 234/255, blue: 17/255))
+                        Button {
+                            // Roll Dice
+                            if rollAmount == 0 {
+                                withAnimation {
+                                    firstDice = Int.random(in: 1...6)
+                                    secondDice = Int.random(in: 1...6)
+                                }
+                                
+                                rollAmount = firstDice + secondDice
+                                
+                                // Add Dice Roll Sound
+                                rollDice()
+                                audioPlayer?.play()
+                            }
                             
-                            Text("Roll Dice")
-                                .font(.largeTitle)
-                                .foregroundStyle(.white)
-                                .fontWeight(.semibold)
+                            
+                        } label: {
+                            ZStack{
+                                Rectangle()
+                                    .frame(width: 200, height: 60)
+                                    .clipShape(RoundedRectangle(cornerRadius: 110))
+                                    .foregroundStyle(Color(red: 12/255, green: 234/255, blue: 17/255))
+                                
+                                Text("Roll Dice")
+                                    .font(.largeTitle)
+                                    .foregroundStyle(.white)
+                                    .fontWeight(.semibold)
+                            }
                         }
                     }
                 }
@@ -377,7 +518,7 @@ struct PlayView: View {
                     .font(.title)
                     .foregroundStyle(.white)
                     
-                        Spacer()
+                    Spacer()
                 }
                 .padding(30)
                 
@@ -457,6 +598,7 @@ struct PlayView: View {
         .onAppear {
             audioPlayer?.pause()
         }
+        
     }
     
     // MARK: Trying to make button tap reusable
