@@ -23,6 +23,8 @@ struct PlayView: View {
     @State var previousRollAmount = 0
     @State var previousButtonNumber = "1"
     @State var previousButton = 0
+    @State var firstRoll = 0
+    @State var diceRoll = false
     
     @State var buttonOne = "1"
     @State var buttonTwo = "2"
@@ -75,56 +77,6 @@ struct PlayView: View {
                         }
                     }
                     
-                    Button {
-                        // UNDO BUTTON KINDA WORKS . . . STILL CAN IMPROVE
-                        // Store previous values for total score, roll amount, and button clicked
-                        // Capture new values every time a button is clicked
-                        // Keep Track of Which Button Was Tapped
-                        totalScore = previousTotalScore
-                        rollAmount = previousRollAmount
-                        
-                        if previousButton == 1 {
-                            buttonOne = previousButtonNumber
-                        }
-                        if previousButton == 2 {
-                            buttonTwo = previousButtonNumber
-                        }
-                        if previousButton == 3 {
-                            buttonThree = previousButtonNumber
-                        }
-                        if previousButton == 4 {
-                            buttonFour = previousButtonNumber
-                        }
-                        if previousButton == 5 {
-                            buttonFive = previousButtonNumber
-                        }
-                        if previousButton == 6 {
-                            buttonSix = previousButtonNumber
-                        }
-                        if previousButton == 7 {
-                            buttonSeven = previousButtonNumber
-                        }
-                        if previousButton == 8 {
-                            buttonEight = previousButtonNumber
-                        }
-                        if previousButton == 9 {
-                            buttonNine = previousButtonNumber
-                        }
-                        if previousButton == 10 {
-                            buttonTen = previousButtonNumber
-                        }
-                        if previousButton == 11 {
-                            buttonEleven = previousButtonNumber
-                        }
-                        if previousButton == 12 {
-                            buttonTwelve = previousButtonNumber
-                        }
-                        
-                        
-                    } label: {
-                        Text("Undo")
-                    }
-                    
                     Spacer()
                 }
                 .padding()
@@ -132,6 +84,63 @@ struct PlayView: View {
                 // How to Play
                 HStack{
                     Spacer()
+                    Button {
+                        // UNDO BUTTON
+                        // Store previous values for total score, roll amount, and button clicked
+                        // Capture new values every time a button is clicked
+                        // Keep Track of Which Button Was Tapped
+                        if firstRoll != 1 && rollAmount != 0 && diceRoll == false {
+                            totalScore = previousTotalScore
+                            rollAmount = previousRollAmount
+                            
+                            if previousButton == 1 {
+                                buttonOne = previousButtonNumber
+                            }
+                            if previousButton == 2 {
+                                buttonTwo = previousButtonNumber
+                            }
+                            if previousButton == 3 {
+                                buttonThree = previousButtonNumber
+                            }
+                            if previousButton == 4 {
+                                buttonFour = previousButtonNumber
+                            }
+                            if previousButton == 5 {
+                                buttonFive = previousButtonNumber
+                            }
+                            if previousButton == 6 {
+                                buttonSix = previousButtonNumber
+                            }
+                            if previousButton == 7 {
+                                buttonSeven = previousButtonNumber
+                            }
+                            if previousButton == 8 {
+                                buttonEight = previousButtonNumber
+                            }
+                            if previousButton == 9 {
+                                buttonNine = previousButtonNumber
+                            }
+                            if previousButton == 10 {
+                                buttonTen = previousButtonNumber
+                            }
+                            if previousButton == 11 {
+                                buttonEleven = previousButtonNumber
+                            }
+                            if previousButton == 12 {
+                                buttonTwelve = previousButtonNumber
+                            }
+                        }
+                    } label: {
+                        ZStack{
+                            Rectangle()
+                                .frame(width: 80, height: 30)
+                                .clipShape(RoundedRectangle(cornerRadius: 110))
+                                .foregroundStyle(.yellow)
+                            Text("Undo")
+                                .foregroundStyle(.black)
+                                .fontWeight(.semibold)
+                        }
+                    }
                     Button{
                         // Display InformationView Modally
                         showSheet = true
@@ -149,7 +158,8 @@ struct PlayView: View {
                 
                 // Button 1
                 Button {
-                    
+                    diceRoll = false
+                    firstRoll += 1
                     previousTotalScore = totalScore
                     previousRollAmount = rollAmount
                     previousButtonNumber = buttonOne
@@ -173,7 +183,8 @@ struct PlayView: View {
                 }
                 // Button 2
                 Button {
-                    
+                    diceRoll = false
+                    firstRoll += 1
                     previousTotalScore = totalScore
                     previousRollAmount = rollAmount
                     previousButtonNumber = buttonTwo
@@ -192,14 +203,13 @@ struct PlayView: View {
                         totalScore += 2
                     }
                     
-                    previousTotalScore = totalScore
-                    previousRollAmount = rollAmount
-                    
                 } label: {
                     BoxButtonStyleView(boxNumber: buttonTwo)
                 }
                 // Button 3
                 Button {
+                    diceRoll = false
+                    firstRoll += 1
                     previousTotalScore = totalScore
                     previousRollAmount = rollAmount
                     previousButtonNumber = buttonThree
@@ -223,6 +233,8 @@ struct PlayView: View {
                 }
                 // Button 4
                 Button {
+                    diceRoll = false
+                    firstRoll += 1
                     previousTotalScore = totalScore
                     previousRollAmount = rollAmount
                     previousButtonNumber = buttonFour
@@ -245,6 +257,8 @@ struct PlayView: View {
                 }
                 // Button 5
                 Button {
+                    diceRoll = false
+                    firstRoll += 1
                     previousTotalScore = totalScore
                     previousRollAmount = rollAmount
                     previousButtonNumber = buttonFive
@@ -270,6 +284,8 @@ struct PlayView: View {
                 }
                 // Button 6
                 Button {
+                    diceRoll = false
+                    firstRoll += 1
                     previousTotalScore = totalScore
                     previousRollAmount = rollAmount
                     previousButtonNumber = buttonSix
@@ -295,6 +311,8 @@ struct PlayView: View {
                 }
                 // Button 7
                 Button {
+                    diceRoll = false
+                    firstRoll += 1
                     previousTotalScore = totalScore
                     previousRollAmount = rollAmount
                     previousButtonNumber = buttonSeven
@@ -320,6 +338,8 @@ struct PlayView: View {
                 }
                 // Button 8
                 Button {
+                    diceRoll = false
+                    firstRoll += 1
                     previousTotalScore = totalScore
                     previousRollAmount = rollAmount
                     previousButtonNumber = buttonEight
@@ -345,6 +365,8 @@ struct PlayView: View {
                 }
                 // Button 9
                 Button {
+                    diceRoll = false
+                    firstRoll += 1
                     previousTotalScore = totalScore
                     previousRollAmount = rollAmount
                     previousButtonNumber = buttonNine
@@ -371,6 +393,8 @@ struct PlayView: View {
                 }
                 // Button 10
                 Button {
+                    diceRoll = false
+                    firstRoll += 1
                     previousTotalScore = totalScore
                     previousRollAmount = rollAmount
                     previousButtonNumber = buttonTen
@@ -396,6 +420,8 @@ struct PlayView: View {
                 }
                 // Button 11
                 Button {
+                    diceRoll = false
+                    firstRoll += 1
                     previousTotalScore = totalScore
                     previousRollAmount = rollAmount
                     previousButtonNumber = buttonEleven
@@ -421,6 +447,8 @@ struct PlayView: View {
                 }
                 // Button 12
                 Button {
+                    diceRoll = false
+                    firstRoll += 1
                     previousTotalScore = totalScore
                     previousRollAmount = rollAmount
                     previousButtonNumber = buttonTwelve
@@ -478,6 +506,8 @@ struct PlayView: View {
                         }
                         
                         Button {
+                            firstRoll += 1
+                            diceRoll = true
                             // Roll Dice
                             if rollAmount == 0 {
                                 withAnimation {
@@ -570,7 +600,7 @@ struct PlayView: View {
                                     rollAmount = 0
                                     firstDice = 0
                                     secondDice = 0
-                                    
+                                    firstRoll = 0
                                 }
                             } label: {
                                 Text("Restart")
